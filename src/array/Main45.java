@@ -22,7 +22,7 @@ public class Main45 {
      * @param numbers
      * @return
      */
-    public String PrintMinNumber(int [] numbers) {
+    public static String PrintMinNumber(int [] numbers) {
 
         String[] str=new String[numbers.length];
         StringBuilder sb = new StringBuilder();
@@ -38,7 +38,9 @@ public class Main45 {
                 return s12.compareTo(s21);
             }
         });
+
         for (String s:str){
+            System.out.println(s);
             sb.append(s);
 
         }
@@ -47,6 +49,35 @@ public class Main45 {
 
 
     }
+
+    /**
+     * 增加一种更加便于理解的方法
+     * @param numbers
+     * @return
+     */
+    public String PrintMinNumber2(int[] numbers){
+        int n = numbers.length;
+        for (int i=0;i<n;i++){
+            for (int j=i+1;j<n;j++){
+                String s12 = String.valueOf(numbers[i]) + String.valueOf(numbers[j]);
+                String s21 = String.valueOf(numbers[j]) + String.valueOf(numbers[i]);
+                if (Integer.parseInt(s12)>Integer.parseInt(s21)){
+                    int t=numbers[i];
+                    numbers[i]=numbers[j];
+                    numbers[j]=t;
+                }
+            }
+
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i:numbers){
+            sb.append(i);
+        }
+        return sb.toString();
+
+    }
+
+   
 
 
 }
