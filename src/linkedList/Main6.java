@@ -17,14 +17,7 @@ import java.util.Stack;
  */
 public class Main6 {
 
-    private class ListNode {
-        int val;
-        ListNode next = null;
 
-        ListNode(int val) {
-           this.val = val;
-       }
-    }
 
     //使用栈的方式
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
