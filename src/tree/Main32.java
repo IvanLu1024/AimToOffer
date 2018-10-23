@@ -38,6 +38,25 @@ public class Main32 {
         return res;
     }
 
+    public ArrayList<Integer> PrintFromTopToBottom1(TreeNode root) {
+        if (root==null)
+            return res;
+        queue.add(root);
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            while (size-->0){
+                TreeNode cur = queue.poll();
+                if (cur==null)
+                    continue;
+                res.add(cur.val);
+                queue.add(cur.left);
+                queue.add(cur.right);
+            }
+        }
+
+        return res;
+    }
+
 
     @Test
     public void test(){
@@ -51,7 +70,7 @@ public class Main32 {
         t2.right=t3;
         t2.left=t5;
 
-        ArrayList<Integer> list = PrintFromTopToBottom(t1);
+        ArrayList<Integer> list = PrintFromTopToBottom1(t1);
         System.out.println(list);
 
 
